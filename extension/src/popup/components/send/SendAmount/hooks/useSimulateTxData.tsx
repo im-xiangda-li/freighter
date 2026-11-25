@@ -334,7 +334,7 @@ const simulateTx = async ({
       params: {
         publicKey: string;
         destination: string;
-        amount: number;
+        amount: string;
       };
       networkDetails: NetworkDetails;
       transactionFee: string;
@@ -563,7 +563,7 @@ function useSimulateTxData({
             publicKey,
             memo: sorobanMemo,
             params: {
-              amount: parsedAmount.toNumber(),
+              amount: parsedAmount.toFixed(),
               publicKey,
               destination: finalDestination,
             },

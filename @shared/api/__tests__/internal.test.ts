@@ -213,7 +213,7 @@ describe("internalApi", () => {
   });
 
   describe("simulateTokenTransfer", () => {
-    it("includes the fee in stroops in the indexer request body", async () => {
+    it("sends the fee in stroops and preserves the exact token amount", async () => {
       const fetchSpy = jest.spyOn(global, "fetch").mockResolvedValue({
         ok: true,
         json: jest.fn().mockResolvedValue({
@@ -230,7 +230,7 @@ describe("internalApi", () => {
           publicKey: "GBRPYHIL2C2FCU5RNBJQ3WXZH4E2LQ7H5GIPQKNORRACV4W6F6C4P4W5",
           destination:
             "GDQP2KPQGKIHYJGXNUIYOMHARUARCA6JYB6CYH6ZJQ4Q25PDBLQZKK7L",
-          amount: 1,
+          amount: "9007199254740993",
         },
         networkDetails: TESTNET_NETWORK_DETAILS,
         transactionFee: "0.00001",
@@ -250,7 +250,7 @@ describe("internalApi", () => {
                 "GBRPYHIL2C2FCU5RNBJQ3WXZH4E2LQ7H5GIPQKNORRACV4W6F6C4P4W5",
               destination:
                 "GDQP2KPQGKIHYJGXNUIYOMHARUARCA6JYB6CYH6ZJQ4Q25PDBLQZKK7L",
-              amount: 1,
+              amount: "9007199254740993",
             },
             network_passphrase: TESTNET_NETWORK_DETAILS.networkPassphrase,
           }),

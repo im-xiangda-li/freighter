@@ -2784,7 +2784,7 @@ export const simulateTokenTransfer = async (args: {
   params: {
     publicKey: string;
     destination: string;
-    amount: number;
+    amount: string;
   };
   networkDetails: NetworkDetails;
   transactionFee: string;
